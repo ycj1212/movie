@@ -9,6 +9,7 @@ import com.example.movie.databinding.FragmentMovieBinding
 
 class MovieFragment : Fragment() {
     private lateinit var binding: FragmentMovieBinding
+    private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -17,5 +18,12 @@ class MovieFragment : Fragment() {
     ): View {
         binding = FragmentMovieBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        movieAdapter = MovieAdapter(this)
+        binding.vpMovieInfo.adapter = movieAdapter
     }
 }
