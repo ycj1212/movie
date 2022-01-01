@@ -25,5 +25,6 @@ class MovieFragment : Fragment() {
 
         movieAdapter = MovieAdapter(this)
         binding.vpMovieInfo.adapter = movieAdapter
+        binding.indicator.setViewPager(binding.vpMovieInfo)
     }
 }
