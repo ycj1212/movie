@@ -1,18 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_movie_details"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="58dp"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="스파이더맨: 노 웨이 홈" />
+
+        <TextView
+            android:id="@+id/tv_movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/bg_round_rect_red"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_movie_title"
+            app:layout_constraintStart_toEndOf="@id/tv_movie_title"
+            app:layout_constraintTop_toTopOf="@id/tv_movie_title"
+            tools:text="12세 이상" />
+
+        <TextView
+            android:id="@+id/tv_movie_additional_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="12dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+            tools:text="2021년 / 액션 / 모험 / 2시간 28분" />
+
+        <TextView
+            android:id="@+id/tv_movie_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="36dp"
+            android:text="영화 개요"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_additional_info" />
+
+        <TextView
+            android:id="@+id/tv_movie_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="58dp"
+            android:textSize="24sp"
+            android:textColor="#333333"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_info_title"
+            tools:text="《스파이더맨: 노 웨이 홈》(영어: Spider-Man: No Way Home)은 2021년 개봉한 미국의 슈퍼히어로 영화이다. 2019년 영화 《스파이더맨: 파 프롬 홈》의 후속작이자, 마블 시네마틱 유니버스(MCU)의 27번째 작품이다. 감독은 전편과 같은 존 왓츠가 맡았으며, 각본 역시 전편에 참여했던 크리스 매케나와 에릭 소머즈가 맡았다." />
+
+        <TextView
+            android:id="@+id/tv_movie_cast_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="32dp"
+            android:text="출연진"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_info" />
+
+        <TextView
+            android:id="@+id/tv_movie_cast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="58dp"
+            android:paddingHorizontal="58dp"
+            android:textSize="24sp"
+            android:textColor="#333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_cast_title"
+            tools:text="톰 홀랜드 - 피터 파커 / 스파이더맨 역\n
+젠데이아 - 미셸 MJ 존스왓슨 역\n
+베네딕트 컴버배치 - 스티븐 스트레인지 역\n
+제이컵 배털론 - 네드 리즈 역\n
+존 패브로 - 해럴드 해피 호건 역\n
+제이미 폭스 - 맥스 딜런 / 일렉트로 역\n
+윌럼 더포 - 노먼 오스본 / 그린 고블린 역\n
+앨프리드 몰리나 - 오토 옥타비우스 박사 / 닥터 옥토퍼스 역\n
+베네딕트 웡 - 웡 역\n
+토니 레볼로리 - 유진 플래시 톰프슨 역\n
+마리사 토메이 - 메이 파커 역\n
+앤드루 가필드 - 피터 파커 / 스파이더맨 역\n
+토비 매과이어 - 피터 파커 / 스파이더맨 역\n
+리스 이반스 - 커트 코너스 / 리저드 역\n
+토머스 헤이든 처치 - 플린트 마르코 / 샌드맨 역\n
+앵거리 라이스 - 베티 브랜트 역\n
+해니벌 버리스 - 윌슨 코치 역\n
+마틴 스타 - 로저 해링턴 역\n
+J. B. 스무브 - 줄리어스 델 역\n
+J. K. 시먼스 - J. 조나 제임슨 역\n
+찰리 콕스 - 맷 머독 / 데어데블 역\n
+폴라 뉴섬 - MIT 관리자 역\n
+아리안 모아이드 - DODC 요원 클리어리 역\n
+톰 하디 - 에디 브록 / 베놈 역 (쿠키 영상)" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
