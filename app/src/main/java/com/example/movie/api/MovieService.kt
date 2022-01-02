@@ -1,5 +1,10 @@
-package com.example.movie
+package com.example.movie.api
 
+import com.example.movie.*
+import com.example.movie.data.MovieCreditsResponse
+import com.example.movie.data.MovieDetailsResponse
+import com.example.movie.data.MovieReleaseDatesResponse
+import com.example.movie.data.MovieResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

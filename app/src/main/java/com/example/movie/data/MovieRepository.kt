@@ -1,5 +1,6 @@
-package com.example.movie
+package com.example.movie.data
 
+import com.example.movie.api.MovieService
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(

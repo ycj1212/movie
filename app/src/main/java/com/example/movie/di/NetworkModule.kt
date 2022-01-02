@@ -1,5 +1,6 @@
-package com.example.movie
+package com.example.movie.di
 
+import com.example.movie.api.MovieService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,9 +1,11 @@
-package com.example.movie
+package com.example.movie.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.movie.data.MovieInfo
+import com.example.movie.data.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,23 +29,27 @@ class MovieViewModel @Inject constructor(
                 val releaseDates = repository.getMovieReleaseDates(movieResult.id)
                 val credits = repository.getMovieCredits(movieResult.id)
 
-                val certification = releaseDates.results.find { it.iso_3166_1 == "KR" }?.release_dates?.first()?.certification ?: ""
+                val certification =
+                    releaseDates.results.find { it.iso_3166_1 == "KR" }?.release_dates?.first()?.certification
+                        ?: ""
                 val genres = mutableListOf<String>()
                 for (i in 0 until 2) {
                     val genre = details.genres.getOrNull(i) ?: break
                     genres.add(genre.name)
                 }
 
-                movieList.add(MovieInfo(
-                    imageUrl = "https://image.tmdb.org/t/p/original${movieResult.poster_path}",
-                    title = movieResult.title,
-                    certification = certification,
-                    releaseDate = details.release_date,
-                    genre = genres.toList(),
-                    runTime = details.runtime,
-                    overview = details.overview,
-                    casts = credits.cast
-                ))
+                movieList.add(
+                    MovieInfo(
+                        imageUrl = "https://image.tmdb.org/t/p/original${movieResult.poster_path}",
+                        title = movieResult.title,
+                        certification = certification,
+                        releaseDate = details.release_date,
+                        genre = genres.toList(),
+                        runTime = details.runtime,
+                        overview = details.overview,
+                        casts = credits.cast
+                    )
+                )
             }
 
             withContext(Dispatchers.Main) {

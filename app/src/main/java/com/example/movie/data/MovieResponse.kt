@@ -1,4 +1,4 @@
-package com.example.movie
+package com.example.movie.data
 
 data class MovieResponse(
     val page: Int,

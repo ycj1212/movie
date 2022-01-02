@@ -1,8 +1,12 @@
-package com.example.movie
+package com.example.movie.adapter
 
 import android.content.res.Configuration
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.movie.data.MovieFragmentState
+import com.example.movie.data.MovieInfo
+import com.example.movie.MovieInfoFragment
 
 class MovieAdapter(
     fragment: Fragment,
