@@ -61,6 +61,15 @@ interface MovieService {
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)
+                .addInterceptor { chain ->
+                    val request = chain.request()
+                    val url = request.url.newBuilder()
+                        .addQueryParameter("api_key", BuildConfig.API_KEY)
+                        .build()
+                    val newRequest = request.newBuilder().url(url).build()
+
+                    chain.proceed(newRequest)
+                }
                 .build()
 
             return Retrofit.Builder()
