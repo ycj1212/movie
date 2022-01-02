@@ -1,11 +1,11 @@
 package com.example.movie
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.movie.data.MovieInfo
 import com.example.movie.databinding.FragmentMovieDetailsBinding
 
 class MovieDetailsFragment : Fragment() {
@@ -30,13 +30,13 @@ class MovieDetailsFragment : Fragment() {
         binding.tvMovieRating.apply {
             text = "${movieInfo.certification}세 이상"
             when (movieInfo.certification) {
-                "7" -> setBackgroundColor(Color.BLUE)
-                "12" -> setBackgroundColor(Color.GREEN)
-                "15" -> setBackgroundColor(Color.YELLOW)
-                "19" -> setBackgroundColor(Color.RED)
+                "7" -> setBackgroundResource(R.drawable.bg_round_rect_blue)
+                "12" -> setBackgroundResource(R.drawable.bg_round_rect_green)
+                "15" -> setBackgroundResource(R.drawable.bg_round_rect_yellow)
+                "19" -> setBackgroundResource(R.drawable.bg_round_rect_red)
                 else -> {
                     text = "전체관람가"
-                    setBackgroundColor(Color.BLUE)
+                    setBackgroundResource(R.drawable.bg_round_rect_blue)
                 }
             }
         }

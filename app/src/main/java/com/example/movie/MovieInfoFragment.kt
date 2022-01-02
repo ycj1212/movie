@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
+import com.example.movie.data.MovieFragmentState
+import com.example.movie.data.MovieInfo
 import com.example.movie.databinding.FragmentMovieInfoBinding
 
 class MovieInfoFragment : Fragment() {
@@ -38,10 +39,12 @@ class MovieInfoFragment : Fragment() {
                     .replace(R.id.fcv_movie_info, movieDetailsFragment).commit()
             }
             MovieFragmentState.BOTH -> {
-                val moviePosterFragment =
-                    binding.fcvMoviePoster?.findFragment<MoviePosterFragment>()
-                val movieDetailsFragment =
-                    binding.fcvMovieDetails?.findFragment<MovieDetailsFragment>()
+                val moviePosterFragment = MoviePosterFragment.newInstance(movieInfo.imageUrl)
+                val movieDetailsFragment = MovieDetailsFragment.newInstance(movieInfo)
+                childFragmentManager.beginTransaction()
+                    .add(R.id.fcv_movie_poster, moviePosterFragment)
+                    .add(R.id.fcv_movie_details, movieDetailsFragment)
+                    .commit()
             }
         }
     }
