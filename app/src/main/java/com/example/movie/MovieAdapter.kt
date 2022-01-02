@@ -17,9 +17,14 @@ class MovieAdapter(
     fun submitList(list: List<MovieInfo>) {
         fragmentList.clear()
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            // 세로 모드인 경우
+            for (i in list.indices) {
+                fragmentList.add(MovieInfoFragment.newInstance(MovieFragmentState.POSTER, list[i]))
+                fragmentList.add(MovieInfoFragment.newInstance(MovieFragmentState.DETAILS, list[i]))
+            }
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            // 가로 모드인 경우
+            for (i in list.indices) {
+                fragmentList.add(MovieInfoFragment.newInstance(MovieFragmentState.BOTH, list[i]))
+            }
         }
         notifyItemRangeInserted(0, fragmentList.size)
     }
