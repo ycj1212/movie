@@ -1,11 +1,15 @@
 package com.example.movie
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class MovieCreditsResponse(
     val cast: List<Cast>,
     val crew: List<Crew>,
     val id: Int
 )
 
+@Parcelize
 data class Cast(
     val adult: Boolean,
     val cast_id: Int,
@@ -19,7 +23,7 @@ data class Cast(
     val original_name: String,
     val popularity: Double,
     val profile_path: String
-)
+) : Parcelable
 
 data class Crew(
     val adult: Boolean,
