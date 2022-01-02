@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.example.movie.adapter.MovieAdapter
 import com.example.movie.databinding.FragmentMovieBinding
+import com.example.movie.util.dpToPx
+import com.example.movie.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +36,7 @@ class MovieFragment : Fragment() {
 
         adapter = MovieAdapter(this, resources.configuration.orientation)
         binding.vpMovieInfo.apply {
-            adapter = adapter
+            adapter = this@MovieFragment.adapter
             offscreenPageLimit = 1
             clipChildren = false
             setPageTransformer(MarginPageTransformer(30.dpToPx(resources.displayMetrics)))
